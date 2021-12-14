@@ -7,11 +7,22 @@ function BookList(props) {
     <div>
       <ul>
         {
-          books.map((book) => {
-            <li key ={book.title}></li>
-          })
+          books.map((book) => (
+            <li key={book.title}>{ `${book.title} by ${book.author}`}</li>
+          ))
         }
       </ul>
+      <form action="">
+        <input type="text" name='' id='' />
+        <button type='button'>add book</button>
+      </form>
+
     </div>
   )
 }
+
+BookList.PropTypes = {
+  books : PropTypes.instanceOf(Array).isRequired
+}
+
+export default BookList
