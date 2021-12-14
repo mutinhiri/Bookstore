@@ -21,7 +21,7 @@ function BookList(props) {
   )
 }
 
-BookList.PropTypes = {
+BookList.propTypes = {
   books : PropTypes.instanceOf(Array).isRequired
 }
 
