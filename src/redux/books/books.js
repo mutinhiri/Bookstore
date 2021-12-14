@@ -13,3 +13,15 @@ const booksReducer = (state = initialState, action) => {
       return state;
   }
 }
+
+export const addBook = payload => ({
+  type: ADD_BOOK,
+  payload
+});
+
+export const removeBook = (payload) => ({
+  type: REMOVE_BOOK;
+  payload,
+})
+
+export default booksReducer
