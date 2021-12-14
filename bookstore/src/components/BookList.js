@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 function BookList(props) {
   const { books } = props;
@@ -8,21 +8,21 @@ function BookList(props) {
       <ul>
         {
           books.map((book) => (
-            <li>{ `${book.title} by ${book.author}`}</li>
+            <li key={book.title}>{ `${book.title} by ${book.author}`}</li>
           ))
         }
       </ul>
       <form action="">
-        <input type="text" name='' id='' />
-        <button type='button'>add book</button>
+        <input type="text" name="" id="" />
+        <button type="button">add book</button>
       </form>
 
     </div>
-  )
+  );
 }
 
-// BookList.propTypes = {
-//   books : PropTypes.instanceOf(Array).isRequired
-// }
+BookList.propTypes = {
+  books: PropTypes.instanceOf(Array).isRequired,
+};
 
-export default BookList
+export default BookList;
