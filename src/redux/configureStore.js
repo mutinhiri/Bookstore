@@ -11,4 +11,4 @@ const store = createStore(
   applyMiddleware(logger)
 );
 
-export default store
+export default store;
