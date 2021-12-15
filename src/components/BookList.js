@@ -15,10 +15,29 @@ export default function BookList() {
     const id = uuidv4()
     const titleInput = document.getElementById('books-input')
     const authorInput = document.getElementById('author-input');
+
+    const newBook = {
+      id,
+      title: titleInput.value,
+      author: authorInput.value
+    }
+
+    dispatch(addBook(newBook));
+    titleInput.value = '';
+    authorInput.value = '';
   }
   return (
     <div>
-      
+      <ul>
+        {
+          booklist.map((book) => (
+            <Book key={book.id} book={ book }/>
+          ))
+        }
+      </ul>
+      <form action="" onSubmit={submitBookToStore}>
+        <input type="text" name='' placeholder='Book name' id='books-input'/>
+      </form>
     </div>
   )
 }
