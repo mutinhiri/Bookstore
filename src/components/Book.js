@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
 
-function Book(props) {
+const Book = (props) => {
   const { book } = props;
 
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function Book(props) {
       <button type="button" id={book.id} onClick={deleteBookFromStore}>Delete</button>
     </li>
   );
-}
+};
 
 Book.propTypes = {
   book: PropTypes.instanceOf(Object).isRequired,
