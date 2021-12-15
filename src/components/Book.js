@@ -2,4 +2,14 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
 
-function Book(props){}
+function Book(props) {
+  const { book } = props;
+
+  const dispatch = useDispatch();
+
+  const deleteBookFromStore = (event) => {
+    const { id } = event.currentTarget;
+    dispatch(removeBook(id));
+  };
+  
+}
