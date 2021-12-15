@@ -36,7 +36,8 @@ export default function BookList() {
         }
       </ul>
       <form action="" onSubmit={submitBookToStore}>
-        <input type="text" name='' placeholder='Book name' id='books-input'/>
+        <input type="text" name='' placeholder='Book name' id='books-input' required />
+        <input type="text" name='' placeholder='Author' id='author-input' required />
       </form>
     </div>
   )
