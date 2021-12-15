@@ -1,28 +1,14 @@
-import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid'
+import { useSelector, useDispatch } from 'react-redux'
+import { addBook } from '../redux/books/books'
+import Book from './Book'
 
-function BookList(props) {
-  const { books } = props;
+import React from 'react'
 
+export default function BookList() {
   return (
     <div>
-      <ul>
-        {
-          books.map((book) => (
-            <li key={book.title}>{ `${book.title} by ${book.author}`}</li>
-          ))
-        }
-      </ul>
-      <form action="">
-        <input type="text" name="" id="" />
-        <button type="button">add book</button>
-      </form>
-
+      
     </div>
-  );
+  )
 }
-
-BookList.propTypes = {
-  books: PropTypes.instanceOf(Array).isRequired,
-};
-
-export default BookList;
