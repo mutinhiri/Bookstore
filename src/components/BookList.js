@@ -1,11 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useSelector, useDispatch } from 'react-redux';
-import React from 'react';
+// import React from 'react';
 import { addBook } from '../redux/books/books';
 import Book from './Book';
 
-export default function BookList() {
-  const booklist = useSelector((state) => state.books);
+function BooksList() {
+  const booksStore = useSelector((state) => state.books);
   const dispatch = useDispatch();
 
   const submitBookToStore = (e) => {
@@ -22,22 +22,27 @@ export default function BookList() {
     };
 
     dispatch(addBook(newBook));
+
     titleInput.value = '';
     authorInput.value = '';
   };
+
   return (
-    <div>
+    <div className="container">
       <ul>
         {
-          booklist.map((book) => (
+          booksStore.map((book) => (
             <Book key={book.id} book={book} />
           ))
         }
       </ul>
       <form action="" onSubmit={submitBookToStore}>
-        <input type="text" name="" placeholder="Book name" id="books-input" required />
+        <input type="text" name="" placeholder="Book" id="books-input" required />
         <input type="text" name="" placeholder="Author" id="author-input" required />
+        <button type="submit">Add Book</button>
       </form>
     </div>
   );
 }
+
+export default BooksList;

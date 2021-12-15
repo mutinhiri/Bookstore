@@ -14,7 +14,7 @@ function Book(props) {
   return (
     <li>
       {`${book.title} by ${book.author}`}
-      <button type="button" id={book.id} onClick={deleteBookFromStore}>remove</button>
+      <button type="button" id={book.id} onClick={deleteBookFromStore}>Delete</button>
     </li>
   );
 }
