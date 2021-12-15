@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/books';
 import Book from './Book';
 
-function BooksList() {
+const BooksList = () => {
   const booksStore = useSelector((state) => state.books);
   const dispatch = useDispatch();
 
@@ -43,6 +43,6 @@ function BooksList() {
       </form>
     </div>
   );
-}
+};
 
 export default BooksList;
