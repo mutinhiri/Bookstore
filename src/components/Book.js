@@ -14,13 +14,13 @@ function Book(props) {
   return (
     <li>
       {`${book.title} by ${book.author}`}
-      <button type='button' id={book.id} onClick={deleteBookFromStore}>remove</button>
+      <button type="button" id={book.id} onClick={deleteBookFromStore}>remove</button>
     </li>
   );
 }
 
 Book.propTypes = {
-  book: PropTypes.instanceOf(Object).isRequired
-}
+  book: PropTypes.instanceOf(Object).isRequired,
+};
 
-export default Book
+export default Book;
