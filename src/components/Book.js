@@ -11,5 +11,16 @@ function Book(props) {
     const { id } = event.currentTarget;
     dispatch(removeBook(id));
   };
-  
+  return (
+    <li>
+      {`${book.title} by ${book.author}`}
+      <button type='button' id={book.id} onClick={deleteBookFromStore}>remove</button>
+    </li>
+  );
 }
+
+Book.propTypes = {
+  book: PropTypes.instanceOf(Object).isRequired
+}
+
+export default Book
