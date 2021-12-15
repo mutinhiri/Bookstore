@@ -1,31 +1,30 @@
-import { v4 as uuidv4 } from 'uuid';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import Form from './Form';
 // import React from 'react';
-import { addBook } from '../redux/books/books';
+
 import Book from './Book';
 
 const BooksList = () => {
   const booksStore = useSelector((state) => state.books);
-  const dispatch = useDispatch();
 
-  const submitBookToStore = (e) => {
-    e.preventDefault();
+  // const submitBookToStore = (e) => {
+  //     e.preventDefault();
 
-    const id = uuidv4();
-    const titleInput = document.getElementById('books-input');
-    const authorInput = document.getElementById('author-input');
+  //     const id = uuidv4();
+  //     const titleInput = document.getElementById('books-input');
+  //     const authorInput = document.getElementById('author-input');
 
-    const newBook = {
-      id,
-      title: titleInput.value,
-      author: authorInput.value,
-    };
+  //     const newBook = {
+  //       id,
+  //       title: titleInput.value,
+  //       author: authorInput.value,
+  //     };
 
-    dispatch(addBook(newBook));
+  //     dispatch(addBook(newBook));
 
-    titleInput.value = '';
-    authorInput.value = '';
-  };
+  //     titleInput.value = '';
+  //     authorInput.value = '';
+  //   };
 
   return (
     <div className="container">
@@ -36,11 +35,7 @@ const BooksList = () => {
           ))
         }
       </ul>
-      <form action="" onSubmit={submitBookToStore}>
-        <input type="text" name="" placeholder="Book" id="books-input" required />
-        <input type="text" name="" placeholder="Author" id="author-input" required />
-        <button type="submit">Add Book</button>
-      </form>
+      <Form />
     </div>
   );
 };
