@@ -20,7 +20,7 @@ export const addBook = payload => ({
 });
 
 export const removeBook = (payload) => ({
-  type: REMOVE_BOOK;
+  type: REMOVE_BOOK,
   payload,
 })
 
