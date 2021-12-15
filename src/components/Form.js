@@ -1,37 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/books';
 
-export default function Form() {
+const Form = () => {
   const dispatch = useDispatch();
+  const [newBook, setNewbook] = useState({ title: '', author: '' });
 
-  const submitBookToStore = (e) => {
-    e.preventDefault();
+  const bookNameHandler = (e) => {
+    setNewbook({ ...newBook, title: e.target.value });
+  };
 
-    const id = uuidv4();
-    const titleInput = document.getElementById('books-input');
-    const authorInput = document.getElementById('author-input');
+  const authorNameHandler = (e) => {
+    setNewbook({ ...newBook, author: e.target.value });
+  };
 
-    const newBook = {
-      id,
-      title: titleInput.value,
-      author: authorInput.value,
-    };
+  const submitHandler = () => {
+    const { title, author } = newBook;
 
-    dispatch(addBook(newBook));
+    if (title.length && author.length) {
+      const newBook = {
+        id: uuidv4(),
+        title,
+        author,
+      };
 
-    titleInput.value = '';
-    authorInput.value = '';
+      dispatch(addBook(newBook));
+      setNewbook({ author: '', title: '' });
+    }
   };
 
   return (
     <div>
-      <form action="" onSubmit={submitBookToStore}>
-        <input type="text" name="" placeholder="Book" id="books-input" required />
-        <input type="text" name="" placeholder="Author" id="author-input" required />
-        <button type="submit">Add Book</button>
+      <form action="">
+        <input type="text" name="" value={newBook.title} placeholder="Book" id="books-input" required onChange={bookNameHandler} />
+        <input type="text" name="" value={newBook.author} placeholder="Author" id="author-input" onChange={authorNameHandler} required />
+        <button type="submit" onClick={submitHandler}>Add Book</button>
       </form>
     </div>
   );
-}
+};
+
+export default Form;
