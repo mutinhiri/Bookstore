@@ -51,6 +51,9 @@ const fetchRemoveBook = (payload) => async(dispatch) => {
   const response = await fetch(url, {
     method: 'DELETE'
   })
+  if (response.ok) {
+    dispatch(removeBook)
+  }
   
 }
 
