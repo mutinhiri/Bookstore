@@ -10,3 +10,5 @@ async function getBooks() {
 
   return Object.values(newBooks);
 }
+
+export default getBooks;

@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import { populatelist, fetchAddBook } from '../redux/books/books';
+import getBooks from '../getBooks';
 
 const Form = () => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    getBooks().then((result) => dispatch(populatelist(result)));
+  }, []);
+
   const [newBook, setNewbook] = useState({ title: '', author: '' });
 
   const bookNameHandler = (e) => {
@@ -25,7 +31,7 @@ const Form = () => {
         author,
       };
 
-      dispatch(addBook(newBook));
+      dispatch(fetchAddBook(newBook));
       setNewbook({ author: '', title: '' });
     }
   };
