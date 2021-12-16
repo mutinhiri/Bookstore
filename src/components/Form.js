@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { v4 as uuidv4 } from 'uuid';
-import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { populatelist, fetchAddBook } from '../redux/books/books';
 import getBooks from '../getBooks';
@@ -27,7 +26,7 @@ const Form = () => {
 
     if (title.length && category.length) {
       const newBook = {
-        item_id: uuid(),
+        item_id: uuidv4(),
         title,
         category,
       };
