@@ -1,4 +1,4 @@
-async function getBooks() {
+export default async function getBooks() {
   const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/GvF5bPrcWRyBlkGes5xE/books';
   const response = await fetch(url);
   const books = await response.json();
@@ -10,5 +10,3 @@ async function getBooks() {
 
   return Object.values(newBooks);
 }
-
-export default getBooks;
