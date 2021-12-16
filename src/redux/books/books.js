@@ -52,7 +52,7 @@ const fetchRemoveBook = (payload) => async(dispatch) => {
     method: 'DELETE'
   })
   if (response.ok) {
-    dispatch(removeBook)
+    dispatch(removeBook(payload))
   }
   
 }
