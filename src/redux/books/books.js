@@ -46,4 +46,12 @@ export const removeBook = (payload) => ({
   payload,
 });
 
+const fetchRemoveBook = (payload) => async(dispatch) => {
+  const url = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/GvF5bPrcWRyBlkGes5xE/books/${payload}`
+  const response = await fetch(url, {
+    method: 'DELETE'
+  })
+  
+}
+
 export default booksReducer;
