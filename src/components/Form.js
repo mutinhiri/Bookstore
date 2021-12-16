@@ -11,28 +11,28 @@ const Form = () => {
     getBooks().then((result) => dispatch(populatelist(result)));
   }, []);
 
-  const [newBook, setNewbook] = useState({ title: '', author: '' });
+  const [newBook, setNewbook] = useState({ title: '', category: '', id: uuidv4() });
 
   const bookNameHandler = (e) => {
     setNewbook({ ...newBook, title: e.target.value });
   };
 
   const authorNameHandler = (e) => {
-    setNewbook({ ...newBook, author: e.target.value });
+    setNewbook({ ...newBook, category: e.target.value });
   };
 
   const submitHandler = () => {
-    const { title, author } = newBook;
+    const { title, category, id } = newBook;
 
-    if (title.length && author.length) {
+    if (title.length && category.length) {
       const newBook = {
-        id: uuidv4(),
+        item_id: id,
         title,
-        author,
+        category,
       };
 
       dispatch(fetchAddBook(newBook));
-      setNewbook({ author: '', title: '' });
+      setNewbook({ category: '', title: '', id: '' });
     }
   };
 
@@ -40,7 +40,7 @@ const Form = () => {
     <div>
       <form action="">
         <input type="text" name="" value={newBook.title} placeholder="Book" id="books-input" required onChange={bookNameHandler} />
-        <input type="text" name="" value={newBook.author} placeholder="Author" id="author-input" onChange={authorNameHandler} required />
+        <input type="text" name="" value={newBook.category} placeholder="Category" id="author-input" onChange={authorNameHandler} required />
         <button type="submit" onClick={submitHandler}>Add Book</button>
       </form>
     </div>

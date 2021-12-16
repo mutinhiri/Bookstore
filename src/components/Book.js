@@ -13,7 +13,7 @@ const Book = (props) => {
   };
   return (
     <li>
-      {`${book.title} by ${book.author}`}
+      {`${book.title} by ${book.category}`}
       <button type="button" id={book.id} onClick={deleteBookFromStore}>Delete</button>
     </li>
   );
