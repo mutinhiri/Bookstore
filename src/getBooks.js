@@ -1,5 +1,5 @@
 async function getBooks() {
-  const url = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/GvF5bPrcWRyBlkGes5xE/books`
+  const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/GvF5bPrcWRyBlkGes5xE/books';
   const response = await fetch(url);
   const books = await response.json();
 
@@ -8,5 +8,5 @@ async function getBooks() {
     item_id: key,
   }));
 
-  return Object.values(newBooks)
+  return Object.values(newBooks);
 }
