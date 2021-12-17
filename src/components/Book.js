@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { fetchRemoveBook } from '../redux/books/books';
+import styles from './Book.module.css';
 
 const Book = (props) => {
   const { book } = props;
@@ -12,7 +13,11 @@ const Book = (props) => {
     dispatch(fetchRemoveBook(id));
   };
   return (
-    <li>
+    <li className={styles.book}>
+      <div>
+        <p className={styles.category}>{book.category}</p>
+        <h3 className={styles.title}>{ book.title }</h3>
+      </div>
       {`${book.title} in category: ${book.category}`}
       <button type="button" id={book.item_id} onClick={deleteBookFromStore}>Delete</button>
     </li>
