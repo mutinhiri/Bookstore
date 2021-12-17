@@ -5,8 +5,8 @@ const Header = () => (
   <header className={styles.header}>
     <h1 className={styles.title}>BookStore</h1>
     <nav className={styles.navLinks}>
-      <a href="/">Books</a>
-      <a href="/Categories">categories</a>
+      <a className={styles.navLink} href="/">Books</a>
+      <a className={styles.navLink} href="/Categories">categories</a>
       <GoPerson className={styles.person} />
     </nav>
   </header>
