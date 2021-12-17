@@ -19,13 +19,13 @@ const Book = (props) => {
       <div>
         <p className={styles.category}>{book.category}</p>
         <h3 className={styles.title}>{book.title}</h3>
-        <p className={styles.author}> Author</p>
+        <p className={styles.author}>Author</p>
         <div className={styles.btnContainer}>
-          <button type="button"> Comments</button>
+          <button type="button">Comments</button>
           <span className={styles.btnDiv}>|</span>
           <button type="button" id={book.item_id} onClick={deleteBookFromStore}>Remove</button>
           <span className={styles.btnDiv}>|</span>
-          <button type="button"> Edit</button>
+          <button type="button">Edit</button>
         </div>
       </div>
       <div className={styles.prog}>
@@ -33,19 +33,18 @@ const Book = (props) => {
           <CircularProgressbar />
         </div>
         <p className={styles.progText}>
-          <span className={styles.progNum}> 10%</span>
+          <span className={styles.progNum}>0%</span>
           <br />
-          Complete
+          Completed
         </p>
       </div>
       <div className={styles.chapter}>
-        <p className={styles.chapterHeading}> curent chapter</p>
-        <p className={styles.chapterTitle}> Introduction</p>
-        <button type="button" className={styles.chapterBtn}> update progress</button>
+        <p className={styles.chapterHeading}>CURRENT CHAPTER</p>
+        <p className={styles.chapterTitle}>Introduction</p>
+        <button type="button" className={styles.chapterBtn}>UPDATE PROGRESS</button>
       </div>
-      {/* {`${book.title} in category: ${book.category}`} */}
-      {/* <button type="button" id={book.item_id} onClick={deleteBookFromStore}>Delete</button> */}
     </li>
+
   );
 };
 
