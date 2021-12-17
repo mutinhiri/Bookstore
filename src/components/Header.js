@@ -1,4 +1,5 @@
-import React from 'react';
+import { GoPerson } from 'react-icons/go';
+import styles from './Header.module.css';
 
 const Header = () => (
   <header className="header">
@@ -6,6 +7,7 @@ const Header = () => (
     <nav className="nav">
       <a href="/">Books</a>
       <a href="/Categories">categories</a>
+      <GoPerson className={styles.person} />
     </nav>
   </header>
 );
