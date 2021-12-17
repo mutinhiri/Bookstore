@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { populatelist, fetchAddBook } from '../redux/books/books';
 import getBooks from '../getBooks';
+import styles from './Form.module.css';
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -38,10 +39,11 @@ const Form = () => {
 
   return (
     <div>
-      <form action="">
+      <form action="" className={styles.form}>
+        <h2 className={styles.formTitle}> Add new book</h2>
         <input type="text" name="" value={newBook.title} placeholder="Book" required onChange={bookNameHandler} />
         <input type="text" name="" value={newBook.category} placeholder="Category" onChange={authorNameHandler} required />
-        <button type="submit" onClick={submitHandler}>Add Book</button>
+        <button className={styles.formBtn} type="submit" onClick={submitHandler}>Add Book</button>
       </form>
     </div>
   );
