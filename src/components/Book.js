@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import { fetchRemoveBook } from '../redux/books/books';
 import styles from './Book.module.css';
 
@@ -35,8 +36,12 @@ const Book = (props) => {
           <span className={styles.progNum}> 10%</span>
           <br />
           Complete
-
         </p>
+      </div>
+      <div className={styles.chapter}>
+        <p className={styles.chapterHeading}> curent chapter</p>
+        <p className={styles.chapterTitle}> Introduction</p>
+        <button type="button" className={styles.chapterBtn}> update progress</button>
       </div>
       {/* {`${book.title} in category: ${book.category}`} */}
       {/* <button type="button" id={book.item_id} onClick={deleteBookFromStore}>Delete</button> */}
